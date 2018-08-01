@@ -65,6 +65,7 @@ namespace Tracker.Tests
             var calculator = new ScoreCalculator(a);
 
             Console.WriteLine(calculator.GetFinalScore());
+            //Add more tests
             //Console.WriteLine(calculator.GetFinalScore(100, 200));
             //Console.WriteLine(calculator.GetFinalScore(10, 2));
 
