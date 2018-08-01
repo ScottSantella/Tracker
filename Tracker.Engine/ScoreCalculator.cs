@@ -35,23 +35,10 @@ namespace Tracker.Engine
 
         public double GetFinalScore()
         {
-            //int finalScore = 0;
-            //double secretNumber = 56;
-            //var sum = _athlete.Scores.Sum(x => x.Score);
-            //finalScore = _athlete.Scores[(int)Enums.AthleteTest.Bench].Score + (int)(_athlete.Weight * _athlete.Height + secretNumber);
-            //return finalScore;
-
-            //Control KC and Control KU to turn things into comments
-
 
             double finalScore = 0;
             int numberOfEvents = _athlete.Scores.Count();
             Gender gender = _athlete.Gender;
-
-            //var sum = _athlete.Scores.Sum(x => x.Score);
-            //finalScore = _athlete.Scores[(int)Enums.AthleteTest.Bench].Score + _athlete.Scores[(int)Enums.AthleteTest.Squat].Score + (int)(_athlete.Weight * _athlete.Height);
-            //return finalScore;
-
 
             double Sprint30mScore = _athlete.Scores.FirstOrDefault(x => x.Test == AthleteTest.Sprint30m).Score;
 
@@ -64,25 +51,14 @@ namespace Tracker.Engine
             finalScore = finalScore + CalculateDeadlift(gender, _athlete.Scores.FirstOrDefault(x => x.Test == AthleteTest.Deadlift).Score);
             finalScore = finalScore + CalculatePullUps(gender, _athlete.Scores.FirstOrDefault(x => x.Test == AthleteTest.PullUps).Score);
 
-
-
-
-
             return finalScore / numberOfEvents;
-
-        
-
-
-
-            // we need gender, weight, scores, score type
 
         }
 
         private double CalculatePullUps(Gender gender, double score)
         {
             
-            // PullUps (m) 34 = 100
-            // PullUps (f) 21 = 100
+           
             double maleMultiplier = 34;
             double femaleMultiplier = 21;
 
@@ -99,8 +75,7 @@ namespace Tracker.Engine
 
         private double CalculateDeadlift(Gender gender, double score)
         {
-            // Deadlift (m) 3.0x bodyweight = 100
-            // Deadlift (f) 2.4x bodyweight = 100
+          
 
             double maleMultiplier = _athlete.Weight * 3;
             double femaleMultiplier = _athlete.Weight * 2.4;
@@ -119,8 +94,7 @@ namespace Tracker.Engine
 
         private double CalculateSquat(Gender gender, double score)
         {
-            // Squat (m) 2.6x bodyweight = 100
-            // squat (f) 2.1x bodyweight = 100
+          
 
             double maleMultiplier = _athlete.Weight * 2.6;
             double femaleMultiplier = _athlete.Weight * 2.1;
@@ -138,8 +112,7 @@ namespace Tracker.Engine
 
         private double CalculateBench(Gender gender, double score)
         {
-            // Bench (m) 2x bodyweight = 100
-            // Bench (f) 1.5x bodyweight = 100
+         
 
             double maleMultiplier = _athlete.Weight * 2;
             double femaleMultiplier = _athlete.Weight * 1.5;
@@ -156,8 +129,7 @@ namespace Tracker.Engine
 
         private double CalculateOverheadshot(Gender gender, double score)
         {
-            // Overheadshot (m) = 18.5 = 100
-            // Overheadshot (f) = 16.5 = 100
+            
 
             double maleMultiplier = 18.5;
             double femaleMultiplier = 16.5;
